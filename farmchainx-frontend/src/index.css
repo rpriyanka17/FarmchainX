@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body global styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e6f4ea; /* soft farm-green background */
+  color: #1a202c; /* default text color */
+}
+
+/* Links globally */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Utility classes if needed */
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}

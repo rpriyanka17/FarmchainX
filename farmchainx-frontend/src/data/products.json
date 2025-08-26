@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Tomato",
+    "price": 50,
+    "status": "farmer hand",
+    "image": "https://via.placeholder.com/50",
+    "meta": {
+      "cropType": "Vegetable",
+      "soilType": "Loamy",
+      "pesticide": "None",
+      "harvestDate": "2025-08-25",
+      "gpsLocation": "12.9716° N, 77.5946° E"
+    }
+  }
+]

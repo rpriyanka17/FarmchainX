@@ -1,0 +1,105 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #eaf6ec;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #064420; /* Dark green */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.navbar .logo img {
+  height: 35px;
+  margin-right: 10px;
+}
+
+.navbar .links a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.navbar .links a:hover {
+  text-decoration: underline;
+}
+
+/* Form */
+.form-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #064420;
+}
+
+.form-container input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-container button {
+  width: 95%;
+  padding: 12px;
+  background-color: #064420;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.form-container button:hover {
+  background-color: #046531;
+}
+
+.form-container p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.form-container p a {
+  color: #064420;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.role-selection {
+  display: flex;
+  flex-wrap: wrap;      /* allows wrapping on small screens */
+  gap: 15px;            /* space between each role */
+}
+
+.role-selection label {
+  display: flex;        /* align radio and text together */
+  align-items: flex-end;  /* vertically center input and text */
+  gap: 5px;             /* space between radio button and name */
+  cursor: pointer;      /* makes whole label clickable */
+}
