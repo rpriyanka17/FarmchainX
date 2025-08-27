@@ -1,0 +1,42 @@
+.card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.card-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Colors */
+.card-blue {
+  background: linear-gradient(135deg, #7bd774, #20ab2e);
+}
+
+.card-green {
+  background: linear-gradient(135deg, #d5d75b, #dbde1d);
+}
+
+.card-purple {
+  background: linear-gradient(135deg, #85a6eb, #3566d0);
+}
+
+.card-orange {
+  background: linear-gradient(135deg, #da7c7c, #e73c33);
+}

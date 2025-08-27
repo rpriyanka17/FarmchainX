@@ -12,24 +12,13 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const loggedInUser = onLogin(email, password, role);
 
-    const foundUser = users.find(
-      (u) => u.email === email && u.password === password && u.role === role
-    );
-
-    if (foundUser) {
-      localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
-
-      if (foundUser.role === "farmer") {
-        navigate("/FarmerDashboard");
-      } else if (foundUser.role === "admin") {
-        navigate("/products"); 
-      } else {
-        navigate("/"); // you can later add more dashboards for other roles
-      }
+    if (loggedInUser) {
+      // Navigate to the role-specific dashboard
+      navigate(`/${loggedInUser.role}`);
     } else {
-      alert("Invalid credentials!");
+      alert("Login failed!");
     }
   };
 

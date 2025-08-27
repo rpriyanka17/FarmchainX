@@ -84,6 +84,7 @@ const EditProductPage = () => {
   }
 
   return (
+    <div className="edit-product-page-container">
     <div className="edit-product-container">
       <h2>Edit Product</h2>
       <form className="edit-product-form" onSubmit={handleSubmit}>
@@ -98,13 +99,15 @@ const EditProductPage = () => {
 
         {/* Image Upload */}
         <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setImage(e.target.files[0])}
+          type="url"
+          placeholder="Enter image URL"
+          onChange={(e) => setImage(e.target.value)}
         />
-        {image && typeof image === "string" && (
+
+        {image && (
           <img src={image} alt="Product Preview" className="product-preview" />
         )}
+
 
         {/* Crop Type */}
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
@@ -173,6 +176,7 @@ const EditProductPage = () => {
         </div>
         {success && <p className="success-msg">{success}</p>}
       </form>
+    </div>
     </div>
   );
 };

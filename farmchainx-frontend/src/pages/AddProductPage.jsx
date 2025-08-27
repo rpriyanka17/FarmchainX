@@ -36,7 +36,7 @@ const AddProductPage = () => {
       pesticide,
       harvestDate,
       gpsLocation,
-      image: image ? URL.createObjectURL(image) : "", // temporary preview
+      image: image || "", // temporary preview
     };
 
     setProducts([...products, newProduct]);
@@ -55,16 +55,17 @@ const AddProductPage = () => {
   };
 
   return (
-    <div className="add-product-container">
-      <h2>Add New Product</h2>
-      <form className="add-product-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Product Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
+    <div className="add-product-page-container">
+      <div className="add-product-container">
+        <h2>Add New Product</h2>
+        <form className="add-product-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Product Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
 
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="Vegetables">Vegetables</option>
@@ -122,15 +123,16 @@ const AddProductPage = () => {
         />
 
         <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setImage(e.target.files[0])}
+          type="url"
+          placeholder="Enter image URL"
+          onChange={(e) => setImage(e.target.value)}
         />
 
         <button type="submit">Add Product</button>
         {success && <p className="success-msg">{success}</p>}
       </form>
     </div>
+  </div>
   );
 };
 

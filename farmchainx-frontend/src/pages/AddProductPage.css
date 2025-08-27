@@ -1,15 +1,47 @@
+.add-product-page-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+
+  /* Background image */
+  background-image: url('https://plus.unsplash.com/premium_photo-1674019234994-eceabbdd091d?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D.jpg'); /* your farm image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Optional overlay for better readability */
+.add-product-page-container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.2); /* semi-transparent dark overlay */
+  z-index: 1;
+}
+
+/* Keep your white card above overlay */
 .add-product-container {
+  position: relative;
+  z-index: 2;
   background-color: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  max-width: 500px;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+  /* wider card */
+  max-width: 400px;  
+  width: 95%;        /* responsive on small screens */
   margin: 0 auto;
 }
 
+
 .add-product-container h2 {
   color: #1c8712;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: 5px;
   text-align: center;
 }
 

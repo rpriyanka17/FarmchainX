@@ -1,0 +1,78 @@
+/* Layout */
+.admin-dashboard {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #166534, #15803d);
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.menu-item:hover {
+  background: rgba(9, 215, 9, 0.2);
+}
+
+
+/* Logout Button */
+.logout-btn {
+  background: #dc2626;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 20px;
+}
+
+.logout-btn:hover {
+  background: #b91c1c;
+}
+
+/* Content Area */
+.content {
+  flex: 1;
+  padding: 40px;
+  background: #f9fafb;
+}
+
+.content h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #166534;
+}
+
+.content p {
+  color: #4b5563;
+  font-size: 1.1rem;
+}

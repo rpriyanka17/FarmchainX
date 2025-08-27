@@ -15,14 +15,14 @@ const FarmerDashboard = ({ onLogout }) => {
 
         <nav className="sidebar-nav">
           <NavLink
-            to="./products"
+            to="/farmer/products"
             className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
           >
             Products
           </NavLink>
 
           <NavLink
-            to="./add"
+            to="/farmer/add"
             className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
           >
             Add Product

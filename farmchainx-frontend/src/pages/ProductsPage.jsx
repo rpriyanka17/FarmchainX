@@ -29,6 +29,7 @@ function ProductsPage() {
 
   return (
     <div style={{ padding: "20px" }}>
+      <h1>Welcome, Farmer</h1>
       <h2>Farm Products</h2>
 
       {/* Search + Status Filter */}
@@ -104,10 +105,9 @@ function ProductsPage() {
                   <button onClick={() => handleDelete(p.id)}>Delete</button>
                 </td>
                 <td>
-                  <QRCodeCanvas
-                    value={`http://192.168.130.226:5175/#/farmer/product/${p.id}`}
-                    size={80}
-                  />
+                  <a href={`/#/farmer/product/${p.id}`} target="_blank" rel="noreferrer">
+                    <QRCodeCanvas value={`${window.location.origin}/#/farmer/product/${p.id}`} size={80} />
+                  </a>
 
                 </td>
               </tr>
