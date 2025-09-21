@@ -1,0 +1,31 @@
+.orders-page {
+  background: #ffffff4a;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.073);
+}
+
+.orders-page h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #1e293b ;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table th,
+.orders-table td {
+  border: 1px solid #d6d8dc;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.orders-table th {
+  background: #f1f5f9;
+  color: #334155;
+  
+}

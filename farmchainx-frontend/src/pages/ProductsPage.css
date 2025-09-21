@@ -49,6 +49,7 @@ td {
   border-bottom: 1px solid #eee;
   vertical-align: middle;
   font-size: 14px;
+  padding-left: 10px;
 }
 
 /* Image column */
@@ -76,19 +77,22 @@ button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   transition: 0.2s ease-in-out;
   margin-top: 10px;
+  background: #07ab2e;
+  color: rgb(255, 254, 254);
   
 }
 
 button:hover {
   transform: scale(1.05);
+  background: #69cb59;
 }
 
 button:first-child {
-  background: #2196f3;
+  background: #099229;
   color: white;
 }
 

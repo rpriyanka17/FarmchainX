@@ -26,6 +26,13 @@
   justify-content: space-between;
 }
 
+.sidebar-logo h2 {
+  color: #ffffff !important;
+  font-weight: 700;
+  margin: 0;
+}
+
+
 .sidebar-logo {
   text-align: center;
 }
@@ -61,7 +68,7 @@
   border: none;
   border-radius: 8px;
   background-color: #82ca64;
-  color: white;
+  color: rgb(222, 214, 214);
   cursor: pointer;
   margin-top: auto;
 }

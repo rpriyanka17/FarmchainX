@@ -1,0 +1,78 @@
+.deliveries-container {
+  padding: 30px;
+  font-family: "Segoe UI", sans-serif;
+  background: #f9fafb0f;
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #2d3748;
+  text-align: center;
+}
+
+.deliveries-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.delivery-card {
+  background: #96e5a2;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delivery-card:hover {
+  transform: translateY(-4px);
+}
+
+.delivery-info h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #2b6cb0;
+}
+
+.delivery-info p {
+  margin: 5px 0;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.status {
+  font-weight: bold;
+}
+
+/* Status colors */
+.delivery-card.completed .status {
+  color: #38a169; /* green */
+}
+
+.delivery-card.out-for-delivery .status {
+  color: #dd6b20; /* orange */
+}
+
+.delivery-card.pending .status {
+  color: #e53e3e; /* red */
+}
+
+.view-btn {
+  background: #1aa53f;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.view-btn:hover {
+  background: #2c5282;
+}

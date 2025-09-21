@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="backend/src/main/java"/>
+	<classpathentry kind="src" path="backend/src/test/java"/>
+	<classpathentry kind="src" path="farmchainx-frontend/node_modules/react-native/ReactAndroid/src/main/java"/>
+	<classpathentry kind="src" path="farmchainx-frontend/node_modules/react-native-svg/android/src/main/java"/>
+	<classpathentry kind="src" path="farmchainx-frontend/node_modules/react-native-svg/android/src/paper/java"/>
+	<classpathentry kind="src" path="farmchainx-frontend/node_modules/react-native-svg/android/src/RenderableViewManager73/java"/>
+	<classpathentry kind="src" path="farmchainx-frontend/node_modules/react-native-svg/android/src/RenderableViewManager75/java"/>
+	<classpathentry kind="src" path="farmchainx-frontend/node_modules/react-native-svg/android/src/SvgPackage73/java"/>
+	<classpathentry kind="src" path="farmchainx-frontend/node_modules/react-native-svg/android/src/SvgPackage74/java"/>
+	<classpathentry kind="src" path="farmchainx-frontend/node_modules/react-native-svg/android/src/SvgViewManager73/java"/>
+	<classpathentry kind="src" path="farmchainx-frontend/node_modules/react-native-svg/android/src/SvgViewManager75/java"/>
+	<classpathentry kind="lib" path="farmchainx-frontend/node_modules/@react-native/gradle-plugin/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="farmchainx-frontend/node_modules/react-native-svg/android/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

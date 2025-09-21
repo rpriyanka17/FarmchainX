@@ -1,0 +1,128 @@
+.retailer-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  background-image: url("https://plus.unsplash.com/premium_vector-1732737881074-8bcdfee2a985?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmV0YWlsZXIlMjBmYXJtfGVufDB8fDB8fHww");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 240px;
+  background-color: #086c0b;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+/* Logo + Brand */
+.brand {
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* stack logo and text vertically */
+  align-items: center;
+}
+
+.brand img.logo {
+  width: 65px;  
+  height: auto; /* same as farmer */
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.brand h2 {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 22px;   /* adjusted for better balance */
+  margin: 0;
+}
+
+/* Sidebar nav */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar ul li {
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background-color: #75b845;
+}
+
+/* Logout button */
+.logout-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #82ca64;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #6ab04c;
+}
+
+/* ===== Main content ===== */
+.content {
+  flex: 1;
+  padding: 20px;
+  
+  background-repeat: no-repeat;
+  overflow-y: auto;
+}
+
+/* ===== Cards in Dashboard ===== */
+.card-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 220px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Action Buttons */
+.action-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #3e8e41;
+}
