@@ -1,6 +1,6 @@
 .orders-container {
   padding: 20px;
-  background: #e4e9ea66;
+  background: #8ac09b66;
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -26,6 +26,7 @@
   padding: 12px 15px;
   text-align: center;
   border-bottom: 1px solid #e5e7eb;
+  color: #000;
 }
 
 .orders-table th {

@@ -1,110 +1,36 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import "./RetailerDashboard.css";
-import logo from "../assets/f.png";
 
-const RetailerDashboard = ({ onLogout }) => {
+export default function RetailerDashboard({ onLogout }) {
   const navigate = useNavigate();
-  const [activePage, setActivePage] = useState("dashboard");
 
   const handleLogout = () => {
-    onLogout();
-    navigate("/login");
-  };
-
-  // Content for each page
-  const renderContent = () => {
-    switch (activePage) {
-      case "dashboard":
-        return (
-          <div>
-            <h1>📊 Retailer Dashboard</h1>
-            
-            <div className="card-container">
-              <div className="card">📦 120 Items in Stock</div>
-              <div className="card">🛒 45 Orders Pending</div>
-              <div className="card">💰 ₹85,000 Payments Processed</div>
-            </div>
-          </div>
-        );
-      case "stock":
-        return (
-          <div>
-            <h1>📦 Manage Stock</h1>
-            <button className="action-btn">➕ Add New Stock</button>
-            <button className="action-btn">✏️ Update Stock</button>
-            <button className="action-btn">❌ Remove Stock</button>
-          </div>
-        );
-      case "orders":
-        return (
-          <div>
-            <h1>🛒 Orders</h1>
-            <button className="action-btn">📋 View All Orders</button>
-            <button className="action-btn">✅ Approve Orders</button>
-            <button className="action-btn">🚚 Track Deliveries</button>
-          </div>
-        );
-      case "payments":
-        return (
-          <div>
-            <h1>💰 Payments</h1>
-            <button className="action-btn">💳 View Payment History</button>
-            <button className="action-btn">📥 Pending Payments</button>
-            <button className="action-btn">📤 Send Invoice</button>
-          </div>
-        );
-      default:
-        return <h1>Welcome, Retailer!</h1>;
-    }
+    if (onLogout) onLogout(); // clear user state
+    navigate("/login");       // redirect to login
   };
 
   return (
     <div className="retailer-dashboard">
-      {/* Sidebar */}
-      <aside className="sidebar">
-        <div className="brand">
-          <img src={logo} alt="FarmChainX Logo" className="logo" />
-          <h2>FarmChainX</h2>
+      {/* Header */}
+      <header className="retailer-header">
+        <h1>Retailer Dashboard</h1>
+        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+      </header>
+
+      {/* Quick Actions */}
+      <section className="quick-actions">
+        <h2>Quick Actions</h2>
+        <div className="actions-grid">
+          <Link to="/retailer/add-stock" className="action-card">➕ Add Stock</Link>
+          <Link to="/retailer/manage-orders" className="action-card">📦 Manage Orders</Link>
+          <Link to="/retailer/payments" className="action-card">💳 Payments</Link>
         </div>
+      </section>
 
-        <ul>
-  <li
-    className={activePage === "dashboard" ? "active" : ""}
-    onClick={() => setActivePage("dashboard")}
-  >
-    Dashboard
-  </li>
-  <li
-    className={activePage === "stock" ? "active" : ""}
-    onClick={() => setActivePage("stock")}
-  >
-    Manage Stock
-  </li>
-  <li
-    className={activePage === "orders" ? "active" : ""}
-    onClick={() => setActivePage("orders")}
-  >
-    Orders
-  </li>
-  <li
-    className={activePage === "payments" ? "active" : ""}
-    onClick={() => setActivePage("payments")}
-  >
-    Payments
-  </li>
-</ul>
-
-
-        <button className="logout-btn" onClick={handleLogout}>
-          Logout
-        </button>
-      </aside>
-
-      {/* Main content */}
-      <main className="content">{renderContent()}</main>
+      {/* Nested pages */}
+      <section className="page-content">
+        <Outlet />
+      </section>
     </div>
   );
-};
-
-export default RetailerDashboard;
+}

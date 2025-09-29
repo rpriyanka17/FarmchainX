@@ -1,134 +1,154 @@
 import React, { useState } from "react";
-import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import Navbar from "./components/Navbar";
+
+// Pages
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
-
+// Farmer
 import FarmerDashboard from "./pages/FarmerDashboard";
+import FarmerDashboardLanding from "./pages/FarmerDashboardLanding";
+import ProductsPage from "./pages/ProductsPage";
+import AddProductPage from "./pages/AddProductPage";
+import EditProductPage from "./pages/EditProductPages";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
+// Admin
 import AdminDashboard from "./pages/AdminDashboard";
 import Users from "./pages/admin/Users";
 import ManageProducts from "./pages/admin/Products";
 import ManageOrders from "./pages/admin/Orders";
 import Dashboard from "./pages/admin/Dashboard";
 
+// Distributor
 import DistributorDashboard from "./pages/DistributorDashboard";
 import DistributorHome from "./pages/DistributorHome";
 import ManageOrder from "./pages/ManageOrder";
 import TrackDeliveries from "./pages/TrackDeliveries";
 import Payments from "./pages/Payments";
 
-import ProductsPage from "./pages/ProductsPage";
-import AddProductPage from "./pages/AddProductPage";
-import EditProductPage from "./pages/EditProductPages";
-import ProductDetailPage from "./pages/ProductDetailPage";
+// Retailer & Consumer
+import RetailerDashboard from "./pages/RetailerDashboard";
+import AddStock from "./pages/AddStock";
+import Orders from "./pages/ManageOrders";
+import Payment from "./pages/Payment";
 
+import ConsumerDashboard from "./pages/ConsumerDashboard";
+import FruitQuality from "./pages/FruitQuality";
+import ConsumerHome from "./pages/ConsumerLanding";
+// Removed old ConsumerScanPage import
+import SupplyChain from "./pages/SupplyChainPage";
+import FeedbackPage from "./pages/ConsumerVerificationPage"; // QR scanning integrated here
+
+// Context
 import { ProductsProvider } from "./context/ProductsContext";
 
-import RetailerDashboard from "./pages/RetailerDashboard";
-import ConsumerDashboard from "./pages/ConsumerDashboard";
-
-
-function App() {
-  const [user, setUser] = useState(() => {
-    const savedUser = localStorage.getItem("user");
-    return savedUser ? JSON.parse(savedUser) : null;
-  });
-
-  const handleLogin = (email, password, role) => {
-    const newUser = { email, role }; // no restriction
-    setUser(newUser);
-    localStorage.setItem("user", JSON.stringify(newUser));
-    return newUser;
-  };
+function AppRoutes({ user, setUser }) {
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     setUser(null);
-    localStorage.removeItem("user");
+    navigate("/login");
   };
 
   return (
-    <ProductsProvider>
-      <Router>
-        
-        <Routes>
-          <Route
-            path="/login"
-            element={user ? <Navigate to={`/${user.role}`} /> : <Login onLogin={handleLogin} />}
-          />
-          <Route
-            path="/register"
-            element={user ? <Navigate to={`/${user.role}`} /> : <Register />}
-          />
+    <>
+      <Navbar role={user?.role} />
+      <Routes>
+        {/* Home page */}
+        <Route path="/" element={<Home />} />
 
-          {/* Farmer dashboard nested routes */}
-          <Route
-            path="/farmer/*"
-            element={user?.role === "farmer" ? <FarmerDashboard onLogout={handleLogout} /> : <Navigate to="/login" />}
-          >
-            <Route index element={<Navigate to="products" />} />
-            <Route path="products" element={<ProductsPage />} />
-            <Route path="add" element={<AddProductPage />} />
-            <Route path="products/edit/:id" element={<EditProductPage />} />
-            <Route path="product/:id" element={<ProductDetailPage />} />
-            
-          </Route>
-          <Route
-            path="/admin/*"
-            element={
-              user?.role === "admin" ? (
-                <AdminDashboard onLogout={handleLogout} />
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
-          >
+        {/* Auth routes */}
+        <Route
+          path="/login"
+          element={user ? <Navigate to={`/${user.role}`} /> : <Login onLogin={setUser} />}
+        />
+        <Route
+          path="/register"
+          element={user ? <Navigate to={`/${user.role}`} /> : <Register />}
+        />
+
+        {/* Farmer */}
+        <Route
+          path="/farmer/*"
+          element={
+            user?.role === "farmer" ? <FarmerDashboard onLogout={handleLogout} /> : <Navigate to="/login" />
+          }
+        >
+          <Route index element={<FarmerDashboardLanding />} />
+          <Route path="products" element={<ProductsPage />} />
+          <Route path="add" element={<AddProductPage />} />
+          <Route path="products/edit/:id" element={<EditProductPage />} />
+          <Route path="product/:id" element={<ProductDetailPage />} />
+        </Route>
+
+        {/* Admin */}
+        <Route
+          path="/admin/*"
+          element={
+            user?.role === "admin" ? <AdminDashboard onLogout={handleLogout} /> : <Navigate to="/login" />
+          }
+        >
           <Route index element={<Dashboard />} />
-          <Route path="users" element={<Users />} />   {/* FIXED */}
-          <Route path="products" element={<ManageProducts />} /> {/* FIXED */}
+          <Route path="users" element={<Users />} />
+          <Route path="products" element={<ManageProducts />} />
           <Route path="orders" element={<ManageOrders />} />
-              {/* FIXED */}
-          </Route>
+        </Route>
 
-          <Route
-            path="/distributor/*"
-            element={
-              user?.role === "distributor" ? (
-                <DistributorDashboard onLogout={handleLogout} />
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
-          >
+        {/* Distributor */}
+        <Route
+          path="/distributor/*"
+          element={
+            user?.role === "distributor" ? <DistributorDashboard onLogout={handleLogout} /> : <Navigate to="/login" />
+          }
+        >
           <Route index element={<DistributorHome />} />
           <Route path="orders" element={<ManageOrder />} />
           <Route path="deliveries" element={<TrackDeliveries />} />
           <Route path="payments" element={<Payments />} />
-          
-          </Route>
-          <Route
-            path="/retailer/*"
-            element={
-              user?.role === "retailer" ? (<RetailerDashboard onLogout={handleLogout} />
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
-          >
-          </Route>
-          <Route
-            path="/consumer/*"
-            element={
-              user?.role === "consumer" ? (<ConsumerDashboard onLogout={handleLogout} />
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
-          >
-          </Route> 
+        </Route>
 
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
+        {/* Retailer */}
+        <Route
+          path="/retailer/*"
+          element={
+            user?.role === "retailer" ? <RetailerDashboard onLogout={handleLogout} /> : <Navigate to="/login" />
+          }
+        >
+          <Route index element={<div />} />
+          <Route path="add-stock" element={<AddStock />} />
+          <Route path="manage-orders" element={<Orders />} />
+          <Route path="payments" element={<Payment />} />
+        </Route>
+
+        {/* Consumer */}
+        <Route path="/consumer/*" element={
+  user?.role === "consumer" ? <ConsumerDashboard onLogout={handleLogout} /> : <Navigate to="/login" />
+}>
+  <Route index element={<ConsumerHome />} />
+  <Route path="fruit-quality" element={<FruitQuality />} />
+  <Route path="scan-product" element={<FeedbackPage />} /> {/* verification page */}
+  <Route path="supply-chain" element={<SupplyChain />} />
+  
+</Route>
+
+
+        {/* Catch all */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </>
+  );
+}
+
+function App() {
+  const [user, setUser] = useState(null); // user from backend: { email, role }
+
+  return (
+    <ProductsProvider>
+      <Router>
+        <AppRoutes user={user} setUser={setUser} />
       </Router>
     </ProductsProvider>
   );

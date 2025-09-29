@@ -1,134 +1,36 @@
-/* Layout */
 .admin-dashboard {
-  display: flex;
-  min-height: 100vh;
+  padding: 20px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-.sidebar {
-  width: 180px;
-  background-color: #086c0b;
-  color: white;
-  padding: 15px;
+.admin-topbar {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.sidebar-logo {
-  text-align: center;
-  margin-bottom: 30px;
+.admin-topbar h2 {
+  color: #086c0b;
+  font-size: 1.8rem;
 }
 
-.sidebar-logo img {
-  width: 50px;
-  margin-bottom: 10px;
-}
-
-.sidebar-logo h2 {
-  color: rgb(237, 233, 233);
-  font-size: 1rem;
-  margin: 0;
-}
-
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  
-}
-
-.menu-item {
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 500;
-  color: white;
-  padding: 8px 14px;      /* reduced padding */
-  text-align: center;
-  background:  #4ebf4e !important;  /* semi-transparent green */
-  font-size: 17px;     
-    /* smaller font */
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* Hover effect */
-.menu-item:hover {
-  background: #11b011ae !important;   /* bright green */
-  color: rgb(233, 237, 231) !important;
-  transform: scale(1.05);
-}
-
-.menu-item:nth-child(1) {
-  background:  #4ebf4e ; /* Dashboard */
-}
-.menu-item:nth-child(2) {
-  background:   #4ebf4e  ; /* Manage Users */
-}
-.menu-item:nth-child(3) {
-  background:   #4ebf4e ; /* Manage Products */
-}
-.menu-item:nth-child(4) {
-  background:   #4ebf4e ; /* Manage Orders */
-}
-
-/* Logout Button */
 .logout-btn {
-  background: #dc2626;
+  padding: 8px 16px;
+  background-color: #086c0b;
+  color: #fff;
   border: none;
-  padding: 12px;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.2s ease;
-  margin-top: 20px;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 .logout-btn:hover {
-  background: #b91c1c;
+  background-color: #065408;
 }
 
-/* Content Area */
-.content {
-  flex: 1;
-  padding: 40px;
-  background: #f9fafb;
-}
-
-.content h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #166534;
-}
-
-.content p {
-  color: #5ecf56;
-  font-size: 1.1rem;
-}
-
-.admin-layout {
-  display: flex;
-  min-height: 100vh;
-  background: #f4f6f9;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Sidebar stays fixed on left */
-.sidebar {
-  width: 220px;
-  background: #086c0b;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
-
-/* Main content fills rest */
-.main-content {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
+.admin-content {
+  /* Ensures nested pages take full width */
+  width: 100%;
 }

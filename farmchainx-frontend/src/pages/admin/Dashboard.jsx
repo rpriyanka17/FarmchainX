@@ -65,10 +65,10 @@ const Dashboard = () => {
 
       {/* KPI Cards */}
       <div className="dashboard-grid">
-        <Cards title="👨‍🌾 Farmers" value={farmers.length} color="blue" />
-        <Cards title="🌾 Products" value={products.length} color="green" />
-        <Cards title="🛒 Consumers" value="150" color="purple" />
-        <Cards title="⏳ Pending Approvals" value={farmers.filter(f => !f.approved).length} color="orange" />
+        <Cards title="👨‍🌾 Farmers" value={farmers.length} />
+        <Cards title="🌾 Products" value={products.length} />
+        <Cards title="🛒 Consumers" value="150"  />
+        <Cards title="⏳ Pending Approvals" value={farmers.filter(f => !f.approved).length}  />
       </div>
 
       {/* Widgets */}

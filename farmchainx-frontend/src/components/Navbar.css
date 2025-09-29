@@ -1,0 +1,83 @@
+/* Navbar container */
+.navbar {
+  width: 100%;
+  background-color: #5ecf62 !important;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  padding: 0 20px;
+}
+
+/* Flex container for logo and links */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo left, links right */
+  height: 60px;
+}
+
+/* Logo styles */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between image and text */
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: white;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 39px; /* space between each link */
+  margin-left: 600px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  color: #e5f7e3; /* subtle hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px 16px;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+}

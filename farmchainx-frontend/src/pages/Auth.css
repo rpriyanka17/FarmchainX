@@ -1,123 +1,169 @@
+/* Background */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  background: 
-  radial-gradient(160% 90% at 50% -10%,
-    rgba(122,198,89,.85) 0%,
-    rgba(246,229,120,.70) 55%,
-    rgba(69,141,54,.80) 100%),
-  url("https://media.istockphoto.com/id/870380888/photo/paddy-field-closeup.jpg?s=612x612&w=0&k=20&c=BvgzuPttv04cBtJLszL5U3hqtxsG_IicBhLhnTcr6b8=") center/cover no-repeat fixed;
-
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #eef2f7, #f9fbfa);
   min-height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.8), 
+      rgba(255, 255, 255, 0.8)
+    ),
+    url("../assets/bg.avif") no-repeat center center/cover; /* 🔥 add your farm image */
+  
+
 }
 
-
-
-
-
-
-
-
 /* Navbar */
-.navbar {
-  background-color: #064420; /* Dark green */
-  color: white;
+
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #086c0b;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 40px 50px;
+  gap: 8px;
+}
+
+.logo img {
+  width: 35px;
+  height: 35px;
+}
+
+.links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: #086c0b;
+}
+
+/* Center Form Container */
+.form-container {
+  max-width: 420px;
+  margin: 80px auto;
+  padding: 40px 30px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
   
 }
 
-.navbar .logo {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  font-size: 30px;
-  font-weight: bold;
-  height: 5px;
+.form-container h2 {
+  margin-bottom: 25px;
+  color: #086c0b;
+  font-size: 26px;
 }
 
-.navbar .logo img {
-  height: 35px;
-  margin-right: 10px;
-}
-
-.navbar .links a {
-  color: white;
-  margin-left: 20px;
-  text-decoration: none;
-  font-size: 16px;
+/* Inputs */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 12px 0;
+  padding-right: 1px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
   transition: 0.3s;
 }
 
-.navbar .links a:hover {
-  text-decoration: underline;
+.form-container input:focus {
+  border-color: #086c0b;
+  box-shadow: 0 0 8px rgba(8, 108, 11, 0.4);
 }
 
-/* Form */
-.form-container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.85); /* slight transparency */
-  backdrop-filter: blur(10px);          /* soft blur effect */
-  border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
-  text-align: center;
+/* Role Selection */
+.role-selection {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.form-container h2 {
-  margin-bottom: 20px;
-  color: #064420;
-}
-
-.form-container input {
-  width: 90%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+.role-selection label {
+  background: #f9f9f9;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
   font-size: 14px;
+  border: 1px solid #ddd;
+  transition: 0.3s;
 }
 
+.role-selection input {
+  margin-right: 6px;
+}
+
+.role-selection label:hover {
+  background: #e8f5ea;
+  border-color: #086c0b;
+}
+
+/* Button */
 .form-container button {
-  width: 95%;
-  padding: 12px;
-  background-color: #064420;
+  width: 100%;
+  padding: 14px;
+  background: #086c0b;
   color: white;
-  font-size: 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
+  font-size: 16px;
   cursor: pointer;
   margin-top: 15px;
   transition: 0.3s;
 }
 
 .form-container button:hover {
-  background-color: #046531;
+  background: #065408;
 }
 
+/* Extra Link */
 .form-container p {
-  margin-top: 15px;
+  margin-top: 18px;
   font-size: 14px;
 }
 
 .form-container p a {
-  color: #064420;
-  text-decoration: none;
+  color: #086c0b;
   font-weight: bold;
+  text-decoration: none;
 }
 
-.role-selection {
-  display: flex;
-  flex-wrap: wrap;      /* allows wrapping on small screens */
-  gap: 15px;            /* space between each role */
+.form-container p a:hover {
+  text-decoration: underline;
 }
 
-.role-selection label {
-  display: flex;        /* align radio and text together */
-  align-items: flex-end;  /* vertically center input and text */
-  gap: 5px;             /* space between radio button and name */
-  cursor: pointer;      /* makes whole label clickable */
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .form-container {
+    margin: 50px 20px;
+    padding: 30px 20px;
+  }
+
+  .role-selection {
+    flex-direction: column;
+    gap: 6px;
+  }
 }

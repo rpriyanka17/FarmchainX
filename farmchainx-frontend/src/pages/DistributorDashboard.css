@@ -1,75 +1,34 @@
-.distributor-dashboard {
+/* Full-width dashboard without sidebar */
+.distributor-dashboard-full {
   min-height: 100vh;
   display: flex;
-  background: url("https://plus.unsplash.com/premium_vector-1723108109571-e12ee1a57d10?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlzdHJpYnV0b3J8ZW58MHx8MHx8fDA%3D") 
-              no-repeat center center fixed;
-  background-size: cover;
-}
-
-.distributor-dashboard::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-/* Sidebar */
-.sidebar {
-  width: 250px;
-  background: #33d764;
-  color: white;
-  display: flex;
   flex-direction: column;
+   /* subtle background */
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
   justify-content: space-between;
-  padding: 20px 15px;
-  z-index: 2;
-  position: relative;
-}
-
-.sidebar-logo {
-  text-align: center;
-}
-
-.sidebar-logo img {
-  width: 70px;
-  margin-bottom: 10px;
-}
-
-.sidebar-logo h2 {
-  font-size: 25px;
-  margin: 0;
-  color: #38bdf8;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
-}
-
-.menu-item {
-  color: #cbd5e1;
-  text-decoration: none;
-  padding: 12px 15px;
-  border-radius: 6px;
-  transition: 0.3s;
-}
-
-.menu-item:hover,
-.menu-item.active {
-  background: #334155;
-  color: #38bdf8;
-}
-
-/* Logout button */
-.logout-btn {
-  margin-top: 20px;
-  padding: 12px;
-  background: #ef4444;
+  align-items: center;
+  padding: 20px 40px;
+  background: #8ac09b66;
   color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.logout-btn {
+  padding: 10px 20px;
   border: none;
   border-radius: 6px;
+  background: #ef4444;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -78,106 +37,23 @@
   background: #dc2626;
 }
 
-/* Main content */
-.content {
+/* Main content area */
+.content-full {
   flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 30px;
+  padding: 30px 40px;
   overflow-y: auto;
-  z-index: 2;
-  position: relative;
-  color: white;
-}
-
-/* Products List */
-.products-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 30px;
-}
-
-.product-card {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 15px;
-  border-radius: 8px;
-  width: 200px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.product-card:hover,
-.product-card.active {
-  background: rgba(56, 189, 248, 0.2);
-  box-shadow: 0 0 10px #38bdf8;
-}
-
-/* Update Transport Form */
-.update-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-}
-
-.update-form input,
-.update-form select,
-.update-form button {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  outline: none;
-}
-
-.update-form input,
-.update-form select {
   width: 100%;
+  box-sizing: border-box;
+  color: #1f2937; /* dark text for readability */
 }
 
-.update-form button {
-  background: #38bdf8;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.update-form button:hover {
-  background: #0ea5e9;
-  color: white;
-}
-
-/* Supply Chain Timeline */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.timeline-item {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 15px;
-  border-left: 4px solid #38bdf8;
-  border-radius: 6px;
-  position: relative;
-}
-
-.timeline-item h4 {
-  margin: 0 0 5px 0;
-  font-size: 16px;
-  color: #38bdf8;
-}
-
-.timeline-item small {
-  color: #cbd5e1;
-}
-
-/* Product Details Section */
-.product-details h2 {
-  margin-top: 20px;
-  margin-bottom: 15px;
-  color: #38bdf8;
+/* Optional: styling for cards, tables, or forms inside content */
+.content-full .product-card,
+.content-full .update-form,
+.content-full .timeline-item {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
 }

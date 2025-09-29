@@ -1,29 +1,134 @@
-.dashboard-home {
+.distributor-home {
+  padding: 30px 40px;
+  color: #1f2937;
+  background: #8ac09b66;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+
+/* Stats Cards */
+.card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
+  margin-bottom: 30px;
 }
 
 .card {
-  background: #58dc54;
+  background: rgba(240, 240, 240, 0.874) !important;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(4, 91, 62, 0.11);
-  transition: transform 0.2s;
-  margin-bottom: 10px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #03220e ;
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.card h3 {
-  font-size: 16px;
-  color: #023827;
+.card-icon {
+  font-size: 32px;
+  color: #16a34a;
+  margin-bottom: 10px;
+}
+
+/* Progress Bar */
+.progress-bar {
+  background: #e5e7eb;
+  border-radius: 10px;
+  width: 100%;
+  height: 10px;
+  margin-top: 10px;
+}
+
+.progress {
+  height: 100%;
+  background: #16a34a;
+  border-radius: 10px;
+}
+
+/* Flex layout for Alerts + Recent Orders */
+.flex-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Alerts Card */
+.alerts-card {
+  flex: 1 1 300px;
+}
+
+.alerts-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  color: #15803d;
+}
+
+.alerts-card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.alerts-card li {
   margin-bottom: 8px;
+  font-size: 14px;
 }
 
-.card p {
-  font-size: 14px;
-  color: #04285a;
+/* Recent Orders Card */
+.recent-card {
+  flex: 2 1 500px;
+}
+
+.recent-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  color: #15803d;
+}
+
+.recent-card table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.recent-card th,
+.recent-card td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.recent-card th {
+  background: #16a34a;
+  color: white;
+}
+
+.recent-card tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.recent-card td.delivered {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.recent-card td.pending {
+  color: #f59e0b;
+  font-weight: bold;
+}
+
+.recent-card td.in-transit {
+  color: #3b82f6;
+  font-weight: bold;
 }

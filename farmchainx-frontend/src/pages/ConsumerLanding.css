@@ -1,0 +1,158 @@
+/* Reset some defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #086c0b;
+  color: white;
+}
+
+.nav-links button {
+  margin-left: 20px;
+  padding: 8px 16px;
+  border: none;
+  background: #0ea04b;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-links button:hover {
+  background-color: #16a34a;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background: linear-gradient(90deg, #d9f7be 0%, #a7f3d0 100%);
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.hero-text .cta-btn {
+  padding: 12px 24px;
+  border: none;
+  background-color: #16a34a;
+  color: white;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.hero-text .cta-btn:hover {
+  background-color: #0ea04b;
+}
+
+.hero-image img {
+  width: 400px;
+  border-radius: 12px;
+}
+
+/* Seasonal Produce */
+.seasonal-produce {
+  padding: 50px;
+  text-align: center;
+  background-color: #f8fafc;
+}
+
+.produce-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.produce-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 200px;
+  transition: transform 0.3s;
+}
+
+.produce-card:hover {
+  transform: translateY(-5px);
+}
+
+.produce-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Features Section */
+.features {
+  padding: 50px;
+  text-align: center;
+  background-color: #d1fae5;
+}
+
+.feature-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.feature-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #16a34a;
+  color: white;
+}
+
+.cta-section .cta-btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 6px;
+  background-color: white;
+  color: #16a34a;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cta-section .cta-btn:hover {
+  background-color: #f3f4f6;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #065f0b;
+  color: white;
+}

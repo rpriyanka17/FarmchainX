@@ -1,49 +1,27 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import "./FarmerDashboard.css";
-import logo from "../assets/f.png";
 
 const FarmerDashboard = ({ onLogout }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="dashboard-container">
-      {/* Sidebar */}
-      <aside className="sidebar">
-        <div className="sidebar-logo">
-          <img src={logo} alt="logo" />
-          <h2>FarmChainX</h2>
+    <div className="farmer-dashboard">
+      {/* Top bar */}
+      <div className="farmer-topbar">
+        <h2>Farmer Dashboard</h2>
+        <div className="topbar-buttons">
+          
+          <button className="logout-btn" onClick={onLogout}>
+            Logout
+          </button>
         </div>
+      </div>
 
-        <nav className="sidebar-nav">
-          <NavLink
-            to="/farmer/products"
-            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
-          >
-            Products
-          </NavLink>
-
-          <NavLink
-            to="/farmer/add"
-            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
-          >
-            Add Product
-          </NavLink>
-        </nav>
-
-        <button
-          className="logout-btn"
-          onClick={() => {
-            onLogout();
-            window.location.href = "/login"; // redirect after logout
-          }}
-        >
-          Logout
-        </button>
-      </aside>
-
-      {/* Main Content */}
-      <main className="main-content">
-        <Outlet /> {/* Nested routes will render here */}
-      </main>
+      {/* Content area */}
+      <div className="farmer-content">
+        <Outlet /> {/* Nested routes like /farmer/products, /farmer/add */}
+      </div>
     </div>
   );
 };

@@ -1,31 +1,137 @@
-.orders-page {
-  background: #ffffff4a;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.073);
+.manage-orders-container {
+  padding: 30px 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+  background: #8ac09b66;
 }
 
-.orders-page h2 {
-  font-size: 20px;
-  margin-bottom: 15px;
-  color: #1e293b ;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
+
+.manage-orders-container h1 {
+  font-size: 32px;
+  color: #05451c;
+}
+
+.add-btn {
+  background-color: #16a34a;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.add-btn:hover { background-color: #15803d; }
 
 .orders-table {
   width: 100%;
   border-collapse: collapse;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-.orders-table th,
-.orders-table td {
-  border: 1px solid #d6d8dc;
-  padding: 10px;
-  text-align: left;
+.orders-table th, .orders-table td { padding: 15px 20px; text-align: left;font-size:large; }
+.orders-table thead { background-color: #16a34a; color: white; }
+.orders-table tbody tr { background: #fff; transition: background 0.3s, transform 0.2s; }
+.orders-table tbody tr:nth-child(even) { background: #f9f9f9; }
+.orders-table tbody tr:hover { background: #ecfdf5; transform: translateY(-2px); }
+
+.status { padding: 6px 12px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; display: inline-block; min-width: 90px; text-align: center; }
+.status.pending { background-color: #fef3c7; color: #b45309; }
+.status.in-progress { background-color: #bfdbfe; color: #1d4ed8; }
+.status.completed { background-color: #dcfce7; color: #15803d; }
+
+.edit-btn { background-color: #0d6c23; color: white; padding: 6px 12px; border: none; border-radius: 6px; cursor: pointer; margin-right: 5px; transition: 0.3s; }
+.edit-btn:hover { background-color: #82ee79; }
+.delete-btn { background-color: #0d671e; color: white; padding: 6px 12px; border: none; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+.delete-btn:hover { background-color: #57e06a; }
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Professional Modal Card */
+.modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px 35px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-card h2 {
+  margin-bottom: 20px;
+  color: #16a34a;
+  font-size: 24px;
+  text-align: center;
+}
+
+.order-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.order-form input,
+.order-form select {
+  padding: 10px 12px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   font-size: 14px;
+  outline: none;
 }
 
-.orders-table th {
-  background: #f1f5f9;
-  color: #334155;
-  
+.order-form input:focus,
+.order-form select:focus { border-color: #16a34a; box-shadow: 0 0 5px rgba(22,163,74,0.3); }
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
 }
+
+.save-btn {
+  background-color: #16a34a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.save-btn:hover { background-color: #15803d; }
+
+.cancel-btn {
+  background-color: #107718;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cancel-btn:hover { background-color: #69d766; }

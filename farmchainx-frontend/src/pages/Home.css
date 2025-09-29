@@ -1,0 +1,67 @@
+.home-container {
+  height: calc(100vh - 70px); /* Fit into window minus navbar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.8), 
+      rgba(255, 255, 255, 0.8)
+    ),
+    url("../assets/bg.avif") no-repeat center center/cover; /* 🔥 add your farm image */
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #086c0b;
+  margin-bottom: 15px;
+  animation: fadeInDown 1s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.hero-buttons a {
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: #086c0b;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #065408;
+}
+
+.btn-outline {
+  border: 2px solid #086c0b;
+  color: #086c0b;
+}
+
+.btn-outline:hover {
+  background: #e8f7eb;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

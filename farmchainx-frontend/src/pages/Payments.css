@@ -1,36 +1,125 @@
 .payments-page {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 30px;
+  font-family: "Segoe UI", sans-serif;
+  background: #8ac09b66;
+  min-height: 100vh;
 }
 
-.payments-page h2 {
-  font-size: 20px;
+.payments-page h1 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #1e293b;
+  text-align: center;
+}
+
+/* Summary Cards */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.summary-card {
+  flex: 1;
+  min-width: 220px;
+  max-width: 300px;
+  background: #ffffffb1 !important;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.summary-card h2 {
+  font-size: 1.25rem;
   margin-bottom: 15px;
   color: #1e293b;
 }
 
-.payment-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.summary-card p {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #10b981;
 }
 
-.payment-card {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  padding: 15px;
+.summary-card.pending p {
+  color: #f59e0b;
+}
+
+.summary-card.completed p {
+  color: #22c55e;
+}
+
+.summary-card.total p {
+  color: #3b82f6;
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Recent Transactions */
+.recent-transactions {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.recent-transactions h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #1e293b;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.transactions-table th {
+  background: #169e56;
+  color: #fff;
+}
+
+.transactions-table tbody tr:nth-child(even) {
+  background: #f1f5f9;
+}
+
+.transactions-table tbody tr td .status {
+  font-weight: bold;
+  padding: 4px 10px;
   border-radius: 8px;
+  color: #fff;
+  display: inline-block;
+  font-size: 0.85rem;
 }
 
-.payment-card h4 {
-  margin-bottom: 5px;
-  font-size: 15px;
-  color: #0f172a;
+.status.pending {
+  background: #f59e0b;
 }
 
-.payment-card p {
-  font-size: 13px;
-  color: #64748b;
+.status.completed {
+  background: #22c55e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-grid {
+    flex-direction: column;
+    align-items: center;
+  }
 }

@@ -1,48 +1,77 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/f.png";
+import "./Navbar.css";
 
 export default function Navbar({ role }) {
   return (
-    <nav className="bg-green-700 text-white shadow-md">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">🌾 FarmChainX</h1>
+    <nav className="navbar">
+      <div className="navbar-container">
+        {/* Logo on the left */}
+        <div className="logo">
+          <img src={logo} alt="FarmChainX Logo" className="logo-img" />
+          <span className="logo-text">FarmChainX</span>
+        </div>
 
-        {/* Public links */}
-        {!role && (
-          <div className="space-x-6">
-            <Link to="/login" className="hover:text-gray-200">Login</Link>
-            <Link to="/register" className="hover:text-gray-200">Register</Link>
-          </div>
-        )}
+        {/* Links on the right */}
+        <div className="nav-links">
+          {/* Always show Home */}
+          <Link to="/" className="nav-link">Home</Link>
 
-        {/* Farmer Dashboard */}
-        {role === "farmer" && (
-          <div className="space-x-6">
-            <Link to="/farmer/dashboard" className="hover:text-gray-200">Dashboard</Link>
-            <Link to="/farmer/products" className="hover:text-gray-200">My Products</Link>
-            <Link to="/logout" className="hover:text-gray-200">Logout</Link>
-          </div>
-        )}
+          {!role && (
+            <>
+              <Link to="/register" className="nav-link">Get Started</Link>
+              <Link to="/login" className="nav-link">Login</Link>
+            </>
+          )}
 
-        {/* Admin Dashboard */}
-        {role === "admin" && (
-          <div className="space-x-6">
-            <Link to="/admin/dashboard" className="hover:text-gray-200">Dashboard</Link>
-            <Link to="/admin/users" className="hover:text-gray-200">Manage Users</Link>
-            <Link to="/admin/reports" className="hover:text-gray-200">Reports</Link>
-            <Link to="/logout" className="hover:text-gray-200">Logout</Link>
-          </div>
-        )}
+          {role === "farmer" && (
+            <>
+              <Link to="/farmer/" className="nav-link">Dashboard</Link>
+              <Link to="/farmer/products" className="nav-link">My Products</Link>
+              <Link to="/farmer/add" className="nav-link">Add Products</Link>
+              
+            </>
+          )}
 
-        {/* Consumer Dashboard (example) */}
-        {role === "consumer" && (
-          <div className="space-x-6">
-            <Link to="/consumer/dashboard" className="hover:text-gray-200">Dashboard</Link>
-            <Link to="/consumer/orders" className="hover:text-gray-200">My Orders</Link>
-            <Link to="/logout" className="hover:text-gray-200">Logout</Link>
-          </div>
-        )}
+          {role === "admin" && (
+            <>
+              <Link to="/admin" className="nav-link">Dashboard</Link>
+
+              <Link to="/admin/users" className="nav-link">Users</Link>
+              <Link to="/admin/products" className="nav-link">Products</Link>
+              <Link to="/admin/orders" className="nav-link">Orders</Link>
+              
+            </>
+          )}
+
+          {role === "distributor" && (
+            <>
+              <Link to="/distributor/" className="nav-link">Dashboard</Link>
+              <Link to="/distributor/orders" className="nav-link">Orders</Link>
+              <Link to="/distributor/deliveries" className="nav-link">Deliveries</Link>
+              <Link to="/distributor/payments" className="nav-link">Payments</Link>
+              
+            </>
+          )}
+
+          {role === "retailer" && (
+            <>
+              <Link to="/retailer/dashboard" className="nav-link">Dashboard</Link>
+              
+            </>
+          )}
+
+          {role === "consumer" && (
+  <>
+    <Link to="/consumer/" className="nav-link">Dashboard</Link>
+    <Link to="/consumer/fruit-quality" className="nav-link">AI Quality Check</Link>
+    <Link to="/consumer/scan-product" className="nav-link">Verify Product</Link>
+    <Link to="/consumer/supply-chain" className="nav-link">Supply Chain</Link>
+    
+  </>
+)}
+        </div>
       </div>
     </nav>
   );
 }
-

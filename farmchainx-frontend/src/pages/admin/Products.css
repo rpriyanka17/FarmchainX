@@ -1,149 +1,255 @@
-/* Modal styles for Products - same as Users modal */
-.products-page{
-  background: #e4e9ea66;
-  padding: 20px;
+/* Page */
+.products-page {
+  background: #8ac09b66;
+  padding: 30px;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
 }
-.products-page h2 {
-  font-size: 24px;
+
+/* Header */
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.products-header h2 {
+  font-size: 28px;
+  color: #086f31;
   font-weight: bold;
-  color:#086f31 !important;
 }
 
+/* Add Button */
+/* Floating Add Button */
+.floating-add-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: linear-gradient(90deg, #0e7308, #0fd143);
+  color: white;
+  font-size: 28px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transition: 0.3s;
+  z-index: 100;
+}
 
+.floating-add-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
 
-.products-table th,
-.products-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #555;
   text-align: center;
 }
 
-.products-table th {
-  background-color: #0f870f !important;
-  color: white;
+.empty-state .empty-illustration {
+  font-size: 60px;
+  margin-bottom: 20px;
 }
 
-.products-modal-overlay {
+.empty-state h3 {
+  font-size: 24px;
+  color: #086f31;
+  margin-bottom: 10px;
+}
 
-  position: fixed;
-  top: 0;
-  left: 0;
+.empty-add-btn {
+  background: linear-gradient(90deg, #0e7308, #0fd143);
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.empty-add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+/* Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* slightly wider */
+  gap: 35px; /* spacing between cards */
+  justify-items: center;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.586) !important;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: auto;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.product-card h3 {
+  margin: 10px 0 5px 0;
+  font-size: 16px;
+  color: #0e7308;
+}
+
+.price {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Image larger */
+.product-img {
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  height: 150px; /* increased height */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.no-img {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  border-radius: 8px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Buttons inside the card */
+.product-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.edit-btn { 
+  background: #3498db; 
+  color: white; 
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.edit-btn:hover { background: #2980b9; }
+
+.delete-btn { 
+  background: #e74c3c; 
+  color: white; 
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.delete-btn:hover { background: #c0392b; }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-.products-modal-card {
-  background: #fff;
+.modal-card {
+  background: white;
   padding: 30px;
   border-radius: 12px;
-  width: 350px;
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 95%;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
   animation: fadeIn 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.products-modal-title {
-  margin-bottom: 15px;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #2c3e50;
+.modal-card h3 {
   text-align: center;
+  margin-bottom: 15px;
+  color: #086f31;
 }
 
-.products-modal-body label {
-  font-weight: 500;
-  margin-bottom: 6px;
-  display: block;
-  color: #34495e;
-}
-
-.products-modal-body input,
-.products-modal-body select {
+.modal-card input {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   outline: none;
-  transition: border 0.2s;
 }
 
-.products-modal-body input:focus,
-.products-modal-body select:focus {
-  border-color: #3498db;
+.modal-card input:focus {
+  border-color: #0e7308;
 }
 
-.products-modal-actions {
+.preview-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin: 8px auto;
+}
+
+.modal-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
-.products-save-btn {
+.save-btn {
   background: #2ecc71;
   color: white;
-  padding: 8px 14px;
-  border: none;
-  border-radius: 6px;
+  padding: 10px 18px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  font-weight: bold;
 }
 
-.products-save-btn:hover {
-  background: #27ae60;
-}
+.save-btn:hover { background: #27ae60; }
 
-.products-cancel-btn {
+.cancel-btn {
   background: #95a5a6;
   color: white;
-  padding: 8px 14px;
-  border: none;
-  border-radius: 6px;
+  padding: 10px 18px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.products-cancel-btn:hover {
-  background: #7f8c8d;
-}
+.cancel-btn:hover { background: #7f8c8d; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
-}
-
-
-.edit-btn,
-.delete-btn {
-  border: none;
-  padding: 5px 10px;
-  border-radius: 6px;
-  
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 13px;
-}
-
-.edit-btn {
-  background: #0d8631 !important;
-  color: white;
-  margin-right: 5px;
-}
-
-.edit-btn:hover {
-  background: #3ea45e !important;
-}
-
-.delete-btn {
-  background: #0d8631 !important;
-  color: white;
-  margin-right: 5px;
-}
-
-.delete-btn:hover {
-  background: #3ea45e !important;
 }
