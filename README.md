@@ -30,7 +30,7 @@ It leverages blockchain technology to connect **farmers, distributors, retailers
 ## 📂 Project Structure
 
 📦 FarmChainX
-├── 💻 farmchainx-frontend/ # React frontend (UI for all user roles)
+├── 💻 farmchainx-frontend/ # React frontend (UI for all user roles) 
 ├── ⚙️ farmchainx-backend/ # Backend APIs & blockchain integration
 ├── 📊 Dataset/ # Classification dataset for crop/fruit detection
 │
@@ -56,16 +56,19 @@ It leverages blockchain technology to connect **farmers, distributors, retailers
    cd FarmChainX
 
 2. **Install dependencies**
+   ```bash
    cd farmchainx-frontend && npm install
    cd ../farmchainx-backend && npm install
-3. **Configure environment**
+4. **Configure environment**
    ->Create .env file inside server/
    ->Add DB connection, blockchain keys, and API secrets.
-4. **Run the project**
+5. **Run the project**
    ->**Start backend:**
+     ```bash
      cd farmchainx-backend
      npm start
    ->**Start frontend:**
+     ```bash
      cd farmchainx-frontend
      npm start
 
