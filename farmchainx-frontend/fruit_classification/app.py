@@ -7,7 +7,7 @@ import numpy as np
 from io import BytesIO
 
 # Load trained model once at startup
-model = load_model("model.h5")
+model = load_model("fruit_classification/model.h5")
 
 app = FastAPI()
 
