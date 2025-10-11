@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SupplyChainPage from "./SupplyChainPage";
-import "./SupplyOrder.css";
+
 
 export default function SupplyOrder() {
   const [selectedOrder, setSelectedOrder] = useState(null);

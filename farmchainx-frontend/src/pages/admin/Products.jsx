@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Products.css";
 
-export default function Products() {
+export default function Products({ role }) {  // receive role as a prop: "ADMIN" or "FARMER"
   const [products, setProducts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState(""); 
@@ -22,7 +22,19 @@ export default function Products() {
     setCurrentProduct({ ...currentProduct, [e.target.name]: e.target.value });
   };
 
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setCurrentProduct({ ...currentProduct, image: reader.result });
+    };
+    reader.readAsDataURL(file);
+  };
+
+  // Only allow farmers to open add modal
   const openAddModal = () => {
+    if (role !== "FARMER") return; // Admin cannot add
     setModalType("add");
     setCurrentProduct({ name: "", price: "", image: "" });
     setIsModalOpen(true);
@@ -76,7 +88,9 @@ export default function Products() {
           <div className="empty-illustration">📦</div>
           <h3>No products yet</h3>
           <p>Add your first product to get started with your dashboard!</p>
-          <button className="empty-add-btn" onClick={openAddModal}>➕ Add Product</button>
+          {role === "FARMER" && (
+            <button className="empty-add-btn" onClick={openAddModal}>➕ Add Product</button>
+          )}
         </div>
       ) : (
         <div className="products-grid">
@@ -98,18 +112,20 @@ export default function Products() {
         </div>
       )}
 
-      {/* Floating Add Button */}
-      <button className="floating-add-btn" onClick={openAddModal}>➕</button>
+      {/* Floating Add Button only for farmers */}
+      {role === "FARMER" && (
+        <button className="floating-add-btn" onClick={openAddModal}>➕</button>
+      )}
 
-      {/* Modal */}
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-card">
             <h3>{modalType === "edit" ? "Edit Product" : "➕ Add Product"}</h3>
             <input type="text" name="name" value={currentProduct.name} onChange={handleChange} placeholder="Enter Product Name" />
             <input type="number" name="price" value={currentProduct.price} onChange={handleChange} placeholder="Enter Price" />
-            <input type="text" name="image" value={currentProduct.image} onChange={handleChange} placeholder="Enter Image URL" />
+            <input type="file" accept="image/*" onChange={handleFileChange} />
             {currentProduct.image && <img src={currentProduct.image} alt="preview" className="preview-img" />}
+
             <div className="modal-actions">
               <button className="save-btn" onClick={handleSave}>{modalType === "edit" ? "Save Changes" : "Add Product"}</button>
               <button className="cancel-btn" onClick={() => setIsModalOpen(false)}>Cancel</button>

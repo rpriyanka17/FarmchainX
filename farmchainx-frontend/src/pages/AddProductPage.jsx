@@ -16,7 +16,7 @@ const AddProductPage = () => {
   const [pesticide, setPesticide] = useState("");
   const [harvestDate, setHarvestDate] = useState("");
   const [gpsLocation, setGpsLocation] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(""); // URL string
   const [success, setSuccess] = useState("");
 
   const api = import.meta.env.VITE_API_URL;
@@ -38,13 +38,16 @@ const AddProductPage = () => {
       pesticide,
       harvestDate,
       gpsLocation,
-      image,
+      image, // just a URL string, not a file
     };
 
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(`${api}/api/products`, newProduct, {
-        headers: { Authorization: token ? `Bearer ${token}` : undefined }
+        headers: {
+          "Content-Type": "application/json", // 👈 important
+          Authorization: token ? `Bearer ${token}` : undefined
+        }
       });
 
       setProducts([...products, res.data]);

@@ -40,7 +40,8 @@ import FruitQuality from "./pages/FruitQuality";
 import ConsumerHome from "./pages/ConsumerLanding";
 // Removed old ConsumerScanPage import
 import SupplyChain from "./pages/SupplyChainPage";
-import FeedbackPage from "./pages/ConsumerVerificationPage"; // QR scanning integrated here
+import FeedbackPage from "./pages/ConsumerVerificationPage";
+import SupplyOrder from "./pages/SupplyOrder"; // QR scanning integrated here
 
 // Context
 import { ProductsProvider } from "./context/ProductsContext";

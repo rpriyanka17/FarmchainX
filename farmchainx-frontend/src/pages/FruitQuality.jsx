@@ -4,13 +4,16 @@ import "./FruitQuality.css";
 
 export default function FruitQuality() {
   const [file, setFile] = useState(null);
-  const [result, setResult] = useState("");
   const [preview, setPreview] = useState(null);
+  const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const API_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (!selectedFile) return;
+
     setFile(selectedFile);
     setPreview(URL.createObjectURL(selectedFile));
     setResult(""); // clear previous result
@@ -23,11 +26,12 @@ export default function FruitQuality() {
     }
 
     setLoading(true);
+
     const formData = new FormData();
     formData.append("file", file);
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/predict/", formData, {
+      const res = await axios.post(`${API_URL}/predict/`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -35,8 +39,9 @@ export default function FruitQuality() {
       setResult(`${label} (${confidence}% confidence)`);
     } catch (err) {
       console.error(err);
-      setResult("❌ Error: Could not connect to backend.");
+      setResult("❌ Error: Could not connect to backend. Make sure the server is running and CORS is enabled.");
     }
+
     setLoading(false);
   };
 
@@ -58,7 +63,11 @@ export default function FruitQuality() {
           </div>
         )}
 
-        <button className="predict-btn" onClick={handleUpload} disabled={loading}>
+        <button
+          className="predict-btn"
+          onClick={handleUpload}
+          disabled={loading}
+        >
           {loading ? "Predicting..." : "Upload & Predict"}
         </button>
       </div>
