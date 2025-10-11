@@ -5,9 +5,11 @@ from tensorflow.keras.preprocessing import image
 from PIL import Image
 import numpy as np
 from io import BytesIO
+import os
 
 # Load trained model once at startup
-model = load_model("fruit_classification/model.h5")
+model_path = os.path.join(os.path.dirname(__file__), "model.h5")
+model = load_model(model_path)
 
 app = FastAPI()
 
